@@ -1,7 +1,7 @@
 <?php
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose" file="ExecuteMailMergeOnlineRequest.php">
+ * <copyright company="Aspose" file="BuildReportOnlineRequest.php">
  *   Copyright (c) 2019 Aspose.Words for Cloud
  * </copyright>
  * <summary>
@@ -29,9 +29,9 @@
 namespace Aspose\Words\Model\Requests;
 
 /*
- * Request model for executeMailMergeOnline operation.
+ * Request model for buildReportOnline operation.
  */
-class ExecuteMailMergeOnlineRequest
+class BuildReportOnlineRequest
 {
     /*
      * File with template
@@ -39,19 +39,14 @@ class ExecuteMailMergeOnlineRequest
     public $template;
 	
     /*
-     * File with mailmerge data
+     * A string providing data to populate the specified template. The string must be of one of the following types: xml, json, csv
      */
     public $data;
 	
     /*
-     * With regions flag.
+     * An object providing settings of report engine.
      */
-    public $with_regions;
-	
-    /*
-     * Clean up options.
-     */
-    public $cleanup;
+    public $report_engine_settings;
 	
     /*
      * This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, \"template\" will be used instead.
@@ -60,20 +55,18 @@ class ExecuteMailMergeOnlineRequest
     
 	
     /*
-     * Initializes a new instance of the ExecuteMailMergeOnlineRequest class.
+     * Initializes a new instance of the BuildReportOnlineRequest class.
      *  
      * @param \SplFileObject $template File with template
-     * @param \SplFileObject $data File with mailmerge data
-     * @param bool $with_regions With regions flag.
-     * @param string $cleanup Clean up options.
+     * @param string $data A string providing data to populate the specified template. The string must be of one of the following types: xml, json, csv
+     * @param map[string,string] $report_engine_settings An object providing settings of report engine.
      * @param string $document_file_name This file name will be used when resulting document has dynamic field for document file name {filename}. If it is not set, \"template\" will be used instead.
      */
-    public function __construct($template, $data, $with_regions = null, $cleanup = null, $document_file_name = null)             
+    public function __construct($template, $data, $report_engine_settings, $document_file_name = null)             
     {
         $this->template = $template;
         $this->data = $data;
-        $this->with_regions = $with_regions;
-        $this->cleanup = $cleanup;
+        $this->report_engine_settings = $report_engine_settings;
         $this->document_file_name = $document_file_name;
     }
 
@@ -95,7 +88,7 @@ class ExecuteMailMergeOnlineRequest
     }
 	
     /*
-     * File with mailmerge data
+     * A string providing data to populate the specified template. The string must be of one of the following types: xml, json, csv
      */
     public function get_data()
     {
@@ -103,7 +96,7 @@ class ExecuteMailMergeOnlineRequest
     }
 
     /*
-     * File with mailmerge data
+     * A string providing data to populate the specified template. The string must be of one of the following types: xml, json, csv
      */
     public function set_data($value)
     {
@@ -112,36 +105,19 @@ class ExecuteMailMergeOnlineRequest
     }
 	
     /*
-     * With regions flag.
+     * An object providing settings of report engine.
      */
-    public function get_with_regions()
+    public function get_report_engine_settings()
     {
-        return $this->with_regions;
+        return $this->report_engine_settings;
     }
 
     /*
-     * With regions flag.
+     * An object providing settings of report engine.
      */
-    public function set_with_regions($value)
+    public function set_report_engine_settings($value)
     {
-        $this->with_regions = $value;
-        return $this;
-    }
-	
-    /*
-     * Clean up options.
-     */
-    public function get_cleanup()
-    {
-        return $this->cleanup;
-    }
-
-    /*
-     * Clean up options.
-     */
-    public function set_cleanup($value)
-    {
-        $this->cleanup = $value;
+        $this->report_engine_settings = $value;
         return $this;
     }
 	
